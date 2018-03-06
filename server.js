@@ -2,6 +2,7 @@ const express = require('express');
 const hbs = require('hbs');
 const fs = require('fs');
 var app = express();
+var port = process.env.PORT || 3000;
 hbs.registerPartials(__dirname + '/views/partials');
 app.set('view engine', 'hbs');
 app.use(express.static(__dirname + '/public'));
@@ -38,6 +39,6 @@ app.get('/bad', (req,res) => {
     erroMessage: 'error occured'
   });
 });
-app.listen(3000, ()=>{
-  console.log('server is up running ...');
+app.listen(port, ()=>{
+  console.log(`server is up running on port ${port}...`);
 });
